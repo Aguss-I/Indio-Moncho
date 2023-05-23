@@ -1,26 +1,26 @@
 // URL to explain PHASER scene: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/scene/
 
-export default class Juego extends Phaser.Scene {
+export default class nivel2 extends Phaser.Scene {
   constructor() {
     // key of the scene
     // the key will be used to start the scene by other scenes
-    super("juego");
+    super("nivel2");
   }
 
-  init() {
+  init(data) {
     // this is called before the scene is created
     // init variables
     // take data passed from other scenes
     // data object param {}
 
-    this.cantidadEstrellas = 0;
+    this.cantidadEstrellas = data.cantidadEstrellas;
     console.log("Prueba !");
   }
 
   create() {
     // todo / para hacer: texto de puntaje
-    const map = this.make.tilemap({ key: "map" });
-
+    const map = this.make.tilemap({ key: "map2" });
+    console.log(map)
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
     // Phaser's cache (i.e. the name you used in preload)
     const capaFondo = map.addTilesetImage("sky", "tilesFondo");
@@ -93,7 +93,7 @@ export default class Juego extends Phaser.Scene {
       this.jugador,
       this.salida,
       this.esVencedor,
-      () => this.cantidadEstrellas >= 1, // condicion de ejecucion
+      () => this.cantidadEstrellas >= 0, // condicion de ejecucion
       this
     );
 
@@ -101,7 +101,7 @@ export default class Juego extends Phaser.Scene {
     this.cantidadEstrellasTexto = this.add.text(
       15,
       15,
-      "Estrellas recolectadas: 0",
+      "Estrellas recolectadas: " + this.cantidadEstrellas,
       { fontSize: "15px", fill: "#FFFFFF" }
     );
   }
@@ -149,7 +149,7 @@ export default class Juego extends Phaser.Scene {
 
     console.log("estrellas recolectadas", this.cantidadEstrellas);
 
-    this.scene.start("fin", {
+    this.scene.start("nivel2", {
       cantidadEstrellas: this.cantidadEstrellas,
       y: "este es un dato de muestra",
       z: "este es otro atributo enviado a otro escena",
