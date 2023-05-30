@@ -107,6 +107,9 @@ export default class Nivel1 extends Phaser.Scene {
     this.objetivoText= this.add.text(500,15,"objetivo: 5 estrellas",{
       fontSize: "15px",fill: "#FFFFFF"}
     );
+    this.nivelText=this.add.text(325,15,"Nivel-1",{
+      fontSize:"15px",fill:"#FFFFFF"}
+    );
   }
 
   update() {
@@ -114,12 +117,12 @@ export default class Nivel1 extends Phaser.Scene {
     // check input
     //move left
     if (this.cursors.left.isDown) {
-      this.jugador.setVelocityX(-160);
+      this.jugador.setVelocityX(-100);
       this.jugador.anims.play("left", true);
     }
     //move right
     else if (this.cursors.right.isDown) {
-      this.jugador.setVelocityX(160);
+      this.jugador.setVelocityX(100);
       this.jugador.anims.play("right", true);
     }
     //stop
@@ -130,7 +133,7 @@ export default class Nivel1 extends Phaser.Scene {
 
     //jump
     if (this.cursors.up.isDown && this.jugador.body.blocked.down) {
-      this.jugador.setVelocityY(-330);
+      this.jugador.setVelocityY(-360);
     }
   }
 

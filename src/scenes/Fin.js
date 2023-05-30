@@ -15,13 +15,18 @@ export default class Fin extends Phaser.Scene {
     console.log(data);
     this.cantidadEstrellas = data.cantidadEstrellas;
   }
+  preload(){
+    this.load.image("ganaste", "./public/images/Ganaste.jpg");
+  }
 
   create() {
-    this.cantidadEstrellasTexto = this.add.text(
-      15,
-      15,
-      "Estrellas recolectadas: " + this.cantidadEstrellas,
-      { fontSize: "15px", fill: "#FFFFFF" }
-    );
+    
+   this.add.image(390,300,"ganaste").setScale(1);
+   
+   this.add.text(270,520,"Ganaste :D",{
+    fontSize:"40px",fill:"#FFFFFF"}
+   )
+   
+  
   }
 }
