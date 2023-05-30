@@ -1,6 +1,6 @@
 // URL to explain PHASER scene: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/scene/
 
-export default class nivel2 extends Phaser.Scene {
+export default class Nivel2 extends Phaser.Scene {
   constructor() {
     // key of the scene
     // the key will be used to start the scene by other scenes
@@ -93,7 +93,7 @@ export default class nivel2 extends Phaser.Scene {
       this.jugador,
       this.salida,
       this.esVencedor,
-      () => this.cantidadEstrellas >= 0, // condicion de ejecucion
+      () => this.cantidadEstrellas >= 10, // condicion de ejecucion
       this
     );
 
@@ -103,6 +103,9 @@ export default class nivel2 extends Phaser.Scene {
       15,
       "Estrellas recolectadas: " + this.cantidadEstrellas,
       { fontSize: "15px", fill: "#FFFFFF" }
+    );
+    this.objetivoText= this.add.text(500,15,"objetivo: 10 estrellas",{
+      fontSize: "15px",fill: "#FFFFFF"}
     );
   }
 
@@ -149,7 +152,7 @@ export default class nivel2 extends Phaser.Scene {
 
     console.log("estrellas recolectadas", this.cantidadEstrellas);
 
-    this.scene.start("nivel2", {
+    this.scene.start("nivel3", {
       cantidadEstrellas: this.cantidadEstrellas,
       y: "este es un dato de muestra",
       z: "este es otro atributo enviado a otro escena",
