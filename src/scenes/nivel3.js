@@ -123,12 +123,12 @@ export default class Nivel3 extends Phaser.Scene {
       // check input
       //move left
       if (this.cursors.left.isDown) {
-        this.jugador.setVelocityX(-100);
+        this.jugador.setVelocityX(-160);
         this.jugador.anims.play("left", true);
       }
       //move right
       else if (this.cursors.right.isDown) {
-        this.jugador.setVelocityX(100);
+        this.jugador.setVelocityX(160);
         this.jugador.anims.play("right", true);
       }
       //stop
